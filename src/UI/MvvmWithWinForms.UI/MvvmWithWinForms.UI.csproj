@@ -8,4 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\IoC\MvvmWithWinForms.IoC\MvvmWithWinForms.IoC.csproj" />
+    <ProjectReference Include="..\MvvmWithWinForms.Core\MvvmWithWinForms.Core.csproj" />
+  </ItemGroup>
+
 </Project>

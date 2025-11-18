@@ -1,3 +1,6 @@
+using Microsoft.Extensions.DependencyInjection;
+using MvvmWithWinForms.IoC;
+
 namespace MvvmWithWinForms.UI;
 
 internal static class Program
@@ -9,6 +12,14 @@ internal static class Program
     static void Main()
     {
         ApplicationConfiguration.Initialize();
-        Application.Run(new MainForm());
+
+        var services = new ServiceCollection();
+        services.AddCodeGeneration();
+        services.AddTransient<MainForm>();
+
+        var provider = services.BuildServiceProvider();
+        var mainForm = provider.GetRequiredService<MainForm>();
+
+        Application.Run(mainForm);
     }
 }
